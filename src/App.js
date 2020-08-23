@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import axios from 'axios'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link"
-           href="https://reactjs.org"
-           target="_blank"
-           rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    axios.get('https://reddit.com/r/aww.json').then(response => {
+        console.log(response.data.data.children)
+      }).catch(error => {
+        console.log(error)
+      })
+  }
+  render() {
+    return (
+      <div className='App'>
+        <ul className='list-group list-group-flush'>
+          <li className='list-group-item'>Cras justo odio</li>
+          <li className='list-group-item'>Dapibus ac facilisis in</li>
+          <li className='list-group-item'>Morbi leo risus</li>
+          <li className='list-group-item'>Porta ac consectetur ac</li>
+          <li className='list-group-item'>Vestibulum at eros</li>
+        </ul>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
