@@ -5,11 +5,12 @@ import './App.css'
 class App extends Component {
   componentDidMount() {
     axios.get('https://reddit.com/r/aww.json').then(response => {
-        console.log(response.data.data.children)
-      }).catch(error => {
-        console.log(error)
-      })
+      console.log(response.data.data.children)
+    }).catch(error => {
+      console.log(error)
+    })
   }
+
   render() {
     return (
       <div className='App'>
